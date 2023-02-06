@@ -7,8 +7,6 @@ const {urlencoded} = require('body-parser');
 const mongoose = require('mongoose')
 const encrypt  = require("mongoose-encryption")
 
-// expamle
-
 // const mongodbPass = process.env.MONGODBPASS;
 
 // mongoose.connect(
