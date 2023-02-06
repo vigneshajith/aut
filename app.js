@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require("express");
 const app = express();
 
@@ -5,10 +6,10 @@ require("ejs");
 
 const { urlencoded } = require("body-parser");
 const mongoose = require("mongoose");
-const encryption = require("mongoose-encryption")
+const encrypt = require("mongoose-encryption")
 
-// require('dotenv').config()
-// const mongodbPass = process.env.mongodbpass;
+// const mongodbPass = process.env.MONGODBPASS;
+const secrets = "This a secret" ;
 
 // mongoose.connect(
 //   "mongodb+srv://vignesh-admin:"+mongodbPass+"@cluster23.2fymgyj.mongodb.net/"
@@ -22,6 +23,7 @@ const userSchema = new mongoose.Schema({
 });
 
 
+userSchema.plugin(encrypt, { secret: secrets, encryptedFields: ["password"] });
 
 const User = mongoose.model("User", userSchema);
 
