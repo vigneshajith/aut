@@ -158,9 +158,8 @@ app.get("/secrets", (req, res) => {
       console.log(err)
     } else {
       secrets.map((data) => {
-        console.log(data.secret)
-      })
       res.render("secrets",{userWithSecrets: secrets})
+      })
     }
   })
 
